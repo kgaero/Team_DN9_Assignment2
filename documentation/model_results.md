@@ -83,8 +83,7 @@ manageable forecast uncertainty. These insights empower optimized staffing, inve
 
 <!-- ───────── START of Prompts by Rakesh Prusty (prustyr@purdue.edu) ───────── -->
 
-# Dataflow Pipeline Setup for Sales Data Ingestion
-## Model Result and Evaluation by Rakesh Prusty
+# Model Result and Evaluation by Rakesh Prusty
 The sales forecast model was evaluated using `ML.EVALUATE`. The `evaluation_results` DataFrame contains key metrics that indicate the model's performance.
 
 **Evaluation Results:**
