@@ -1,7 +1,7 @@
 
 <!-- ───────── START of Prompts by Kunal Ghosh (ghosh178@purdue.edu) ───────── -->
 
-# Dataset Summary
+# Dataset Summary by Rakesh
 
 ## 1. How many stores are in the dataset?  
 **54**
