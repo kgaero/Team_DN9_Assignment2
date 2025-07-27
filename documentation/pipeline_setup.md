@@ -44,7 +44,7 @@
 <!-- ───────── END of Prompts by Kunal Ghosh (ghosh178@purdue.edu) ───────── -->
 
 <!-- ───────── START of Prompts by Rakesh Prusty (prustyr@purdue.edu) ───────── -->
-# Dataflow Pipeline Setup for Sales Data, Store Info and Oil data Ingestion
+# Dataflow Pipeline Setup for Sales Data, Store Info and Oil data Ingestion by Rakesh
 
 This document outlines the setup for an Apache Beam pipeline designed to read sales data from a CSV file in Google Cloud Storage, process it, and load it into a BigQuery table.
 
