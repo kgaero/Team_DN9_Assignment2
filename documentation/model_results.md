@@ -80,3 +80,58 @@ The forecast plot reveals a robust weekly pattern—higher weekend demand and mi
 manageable forecast uncertainty. These insights empower optimized staffing, inventory, and promotional strategies aligned to the sales rhythm.
 
 <!-- ───────── END of Prompts by Kunal Ghosh (ghosh178@purdue.edu) ───────── -->
+
+<!-- ───────── START of Prompts by Rakesh Prusty (prustyr@purdue.edu) ───────── -->
+## Model Evaluation by Rakesh Prusty
+The sales forecast model was evaluated using `ML.EVALUATE`. The `evaluation_results` DataFrame contains key metrics that indicate the model's performance.
+
+**Evaluation Results:**
+```
+|   non_seasonal_p |   non_seasonal_d |   non_seasonal_q | has_drift   |   log_likelihood |     AIC |    variance | seasonal_periods    | has_holiday_effect   | has_spikes_and_dips   | has_step_changes   |
+|-----------------:|-----------------:|-----------------:|:------------|-----------------:|--------:|------------:|:--------------------|:---------------------|:----------------------|:-------------------|
+|                2 |                1 |                1 | True        |         -20032.9 | 40075.8 | 1.49373e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                2 |                1 |                1 | False       |         -20034   | 40075.9 | 1.49565e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                0 |                1 |                3 | True        |         -20033.4 | 40076.9 | 1.4947e+09  | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                0 |                1 |                3 | False       |         -20034.6 | 40077.1 | 1.49675e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                1 |                1 |                2 | True        |         -20034.1 | 40078.3 | 1.49597e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                1 |                1 |                2 | False       |         -20035.4 | 40078.8 | 1.4982e+09  | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                0 |                1 |                2 | True        |         -20035.5 | 40079   | 1.49844e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                0 |                1 |                2 | False       |         -20036.8 | 40079.6 | 1.50077e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                1 |                1 |                1 | True        |         -20037.7 | 40083.5 | 1.50241e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                1 |                1 |                1 | False       |         -20039   | 40084.1 | 1.50475e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                0 |                1 |                1 | True        |         -20048   | 40102.1 | 1.52108e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                0 |                1 |                1 | False       |         -20049   | 40102.1 | 1.52291e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                3 |                1 |                0 | False       |         -20052.2 | 40112.3 | 1.5287e+09  | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                3 |                1 |                0 | True        |         -20051.6 | 40113.2 | 1.52765e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                2 |                1 |                0 | False       |         -20089.6 | 40185.2 | 1.5988e+09  | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                2 |                1 |                0 | True        |         -20089.2 | 40186.4 | 1.59808e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                1 |                1 |                0 | False       |         -20175.2 | 40354.5 | 1.77149e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                1 |                1 |                0 | True        |         -20175   | 40356   | 1.77105e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                0 |                1 |                0 | False       |         -20291.9 | 40585.9 | 2.03706e+09 | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+|                0 |                1 |                0 | True        |         -20291.8 | 40587.7 | 2.0368e+09  | ['WEEKLY' 'YEARLY'] | False                | True                  | True               |
+```
+
+**Sales Predictions:**
+```
+| forecast_timestamp        |   forecast_value |   standard_error |   confidence_level |   prediction_interval_lower_bound |   prediction_interval_upper_bound |   confidence_interval_lower_bound |   confidence_interval_upper_bound |
+|:--------------------------|-----------------:|-----------------:|-------------------:|----------------------------------:|----------------------------------:|----------------------------------:|----------------------------------:|
+| 2017-08-01 00:00:00+00:00 | 877018           |          38648.8 |               0.95 |                  801403           |                  952632           |                  801403           |                  952632           |
+| 2017-08-02 00:00:00+00:00 | 879722           |          41936.4 |               0.95 |                  797675           |                  961769           |                  797675           |                  961769           |
+| 2017-08-03 00:00:00+00:00 | 727332           |          43116   |               0.95 |                  642977           |                  811686           |                  642977           |                  811686           |
+| 2017-08-04 00:00:00+00:00 | 842084           |          44735.5 |               0.95 |                  754561           |                  929607           |                  754561           |                  929607           |
+| 2017-08-05 00:00:00+00:00 |      1.02684e+06 |          46527.8 |               0.95 |                  935806           |                       1.11787e+06 |                  935806           |                       1.11787e+06 |
+| 2017-08-06 00:00:00+00:00 |      1.1127e+06  |          48218.1 |               0.95 |                       1.01836e+06 |                       1.20704e+06 |                       1.01836e+06 |                       1.20704e+06 |
+| 2017-08-07 00:00:00+00:00 | 811950           |          49824.1 |               0.95 |                  714472           |                  909429           |                  714472           |                  909429           |
+| 2017-08-08 00:00:00+00:00 | 693434           |          51381.2 |               0.95 |                  592909           |                  793959           |                  592909           |                  793959           |
+| 2017-08-09 00:00:00+00:00 | 706181           |          52895.4 |               0.95 |                  602693           |                  809669           |                  602693           |                  809669           |
+| 2017-08-10 00:00:00+00:00 | 620289           |          54367.5 |               0.95 |                  513921           |                  726657           |                  513921           |                  726657           |
+| 2017-08-11 00:00:00+00:00 | 781748           |          55800.6 |               0.95 |                  672576           |                  890919           |                  672576           |                  890919           |
+| 2017-08-12 00:00:00+00:00 | 984699           |          57197.7 |               0.95 |                  872794           |                       1.0966e+06  |                  872794           |                       1.0966e+06  |
+| 2017-08-13 00:00:00+00:00 |      1.0745e+06  |          58561.5 |               0.95 |                  959926           |                       1.18907e+06 |                  959926           |                       1.18907e+06 |
+| 2017-08-14 00:00:00+00:00 | 801779           |          59894.3 |               0.95 |                  684598           |                  918960           |                  684598           |                  918960           |
+```
+
+## Analysis of Predicted Patterns
+The predicted sales exhibit a clear **weekly seasonality**, with sales volume expected to peak on Sundays and be lowest around Thursdays.
+As seen in the predicted sales volume data, weekends show a higher overall sales volume compared to weekdays in the forecast period, which aligns with the historical weekly pattern we analyzed earlier.
+<!-- ───────── END of Prompts by Rakesh Prusty (prustyr@purdue.edu) ───────── -->
