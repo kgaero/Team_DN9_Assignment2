@@ -134,3 +134,66 @@ This pipeline processes and cleans sales data from the Kaggle Store Sales datase
 - **Write Disposition:** `WRITE_TRUNCATE`
 
 <!-- ───────── END of Prompts by Pavan Meka (pmeka@purdue.edu) ───────── -->
+
+<!-- ───────── START of Prompts by Sai Nuka (snuka@purdue.edu) ───────── -->
+
+# Dataflow Pipeline: Store Sales Data ETL - Sai Nuka
+
+## Objective
+This pipeline is designed to process and clean sales data from the Kaggle Store Sales dataset, which is stored as a CSV file in a Google Cloud Storage (GCS) bucket. The data is read, transformed—by skipping the header, mapping and converting fields to the correct data types, and filtering out invalid transactions—and then loaded into a BigQuery table for further analysis.
+
+---
+
+## Setup
+1. **Google Cloud Project:** Use an active Google Cloud project (`mgmt599_sainuka`).
+2. **GCS Bucket:** Ensure the bucket (`gs://mgmt599_sainuka`) exists and contains the input CSV file (`kaggle-store-sales/train.csv`) for both staging and temporary Dataflow files.
+3. **BigQuery Dataset/Table:** Pre-create the BigQuery dataset (`store_sales_team_data_ninja`) and table (`sales_data`) with the correct schema. The pipeline will overwrite this table's data (`WRITE_TRUNCATE`).
+4. **Enable Dataflow API:** Make sure the Dataflow API is enabled in your Google Cloud project.
+5. **IAM Permissions:** The service account running Dataflow must be able to read/write to GCS, access the BigQuery schema, and write/truncate data in BigQuery.
+6. **Apache Beam SDK:** Install the Apache Beam SDK for Python (`pip install apache-beam[gcp]`).
+7. **Python Environment:** Set up a Python environment with the required libraries (`apache_beam`, `csv`, `datetime`).
+
+
+## Input
+- **Source:** Google Cloud Storage (GCS)  
+- **Bucket Path:** `gs://mgmt599_sainuka/kaggle-store-sales/train.csv`  
+- **Format:** CSV with header  
+- **Columns:**
+  - `id`
+  - `date`
+  - `store_nbr`
+  - `family`
+  - `sales`
+  - `onpromotion`
+
+---
+
+## Transformations
+- Skip CSV header.
+- Convert and map fields:
+  - `id` → INTEGER
+  - `date` → DATE (`%Y-%m-%d`)
+  - `store_nbr` → INTEGER
+  - `family` → STRING
+  - `sales` → FLOAT
+  - `onpromotion` → INTEGER
+- Filter out invalid rows:
+  - `sales < 0` (invalid transaction)
+
+---
+
+## Output
+- **Destination:** BigQuery  
+- **Project:** `mgmt-599-sainuka-lab2`  
+- **Dataset:** `store_sales_team_data_ninja`  
+- **Table:** `sales_data`
+---
+
+## Running the Pipeline and Pipeline Configurations:
+
+The pipeline is set up to run using the Dataflow runner. To launch it, you typically execute the Python script that contains the pipeline code. The `options` object is used to define settings like the project, region, and the locations for staging and temporary files required by the Dataflow job.
+
+- **Temp Location:** `gs://mgmt599_sainuka/temp`
+- **Staging Location:** `gs://mgmt599_sainuka/staging`
+
+<!-- ───────── END of Prompts by Sai Nuka (snuka@purdue.edu) ───────── -->
