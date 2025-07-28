@@ -184,3 +184,30 @@ As seen in the predicted sales volume data, weekends show a higher overall sales
 
 ---
 <!-- ───────── END of Prompts by Pavan Meka (pmeka@purdue.edu) ───────── -->
+<!-- ───────── START of Prompts by Sai Nuka (snuka@purdue.edu) ───────── -->
+
+## Key Observations from Time Series Forecast and Model Evaluation by Pavan Meka
+
+1. **Short-Term Forecast (Aug 1–14, 2017):**
+   - Predicted sales range from **727K to 1.07M**.
+   - Highest sales are projected for **Aug 13 (~1.07M)**, with the lowest on **Aug 10 (~620K)**.
+   - Prediction intervals widen over time, reflecting increased uncertainty further out.
+   - Significant sales spikes are observed on weekends (e.g., Aug 5–6, Aug 12–13).
+
+2. **Model Performance:**
+   - Selected model: **ARIMA(2,1,1)** with weekly and yearly seasonality.
+   - Achieved an AIC of **40075.77**, indicating a strong fit.
+   - Stable residual variance (~**1.49B**) supports reliable aggregate forecasts.
+   - The model effectively captures sales spikes, dips, and step changes.
+
+3. **Business Applications:**
+   - Enables tactical planning for inventory, logistics, and marketing.
+   - Holiday effects are not included in the current model but represent an opportunity for future refinement.
+
+4. **Practical Implications:**
+   - Forecasts are dependable for short-term (two-week) planning.
+   - Results support strategic decisions on inventory management, promotion scheduling, and capacity planning.
+---
+**Evaluation Results:**
+
+<img width="1030" height="454" alt="image" src="https://github.com/user-attachments/assets/3fcc2be8-d857-4aca-9ab1-525b3ad64e27" />
