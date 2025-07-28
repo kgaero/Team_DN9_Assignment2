@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `mgmt599-rakesh-assignment-1.store_sales_team_data_ni
 
 -- ───────── END of SQL queries by Rakesh Prusty (prustyr@purdue.edu) ───────── -->
 
--- ───────── START of SQL queries by Rakesh Prusty (prustyr@purdue.edu) ───────── -->
+-- ───────── START of SQL queries by Pavan Meka (pmeka@purdue.edu) ───────── -->
 -- 1) oil table
 CREATE TABLE IF NOT EXISTS `mgmt599-pavanmeka-lab1.store_sales_team_DN9.sales_data` (
   date       DATE,
