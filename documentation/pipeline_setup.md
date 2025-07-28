@@ -80,3 +80,57 @@ The pipeline is configured to run on the Dataflow runner. To execute the pipelin
 The above steps were also performed to load store_info and oil data in big query. 
 
 <!-- ───────── END of Prompts by Rakesh Prusty (prustyr@purdue.edu) ───────── -->
+
+<!-- ───────── START of Prompts by Pavan Meka (pmeka@purdue.edu) ───────── -->
+
+# Dataflow Pipeline: Store Sales Data ETL - Pavan Meka
+
+## Objective
+This pipeline processes and cleans sales data from the Kaggle Store Sales dataset stored in a GCS bucket and writes the transformed output to a BigQuery table for further analysis.
+
+---
+
+## Input
+- **Source:** Google Cloud Storage (GCS)  
+- **Bucket Path:** `gs://mgmt599-pavanmeka-data-lake/kaggle-store-sales/train.csv`  
+- **Format:** CSV with header  
+- **Columns:**
+  - `id`
+  - `date`
+  - `store_nbr`
+  - `family`
+  - `sales`
+  - `onpromotion`
+
+---
+
+## Transformations
+- Skip CSV header.
+- Convert and map fields:
+  - `id` → INTEGER
+  - `date` → DATE (`%Y-%m-%d`)
+  - `store_nbr` → INTEGER
+  - `family` → STRING
+  - `sales` → FLOAT
+  - `onpromotion` → INTEGER
+- Filter out invalid rows:
+  - `sales < 0` (invalid transaction)
+
+---
+
+## Output
+- **Destination:** BigQuery  
+- **Project:** `mgmt599-pavanmeka-lab1`  
+- **Dataset:** `store_sales_team_DN9`  
+- **Table:** `sales_data`
+---
+
+## Pipeline Configuration
+- **Runner:** `DataflowRunner`
+- **Region:** `us-central1`
+- **Temp Location:** `gs://pavanmeka-lab2-bucket/temp`
+- **Staging Location:** `gs://pavanmeka-lab2-bucket/staging`
+- **Job Name:** `mgmt599-sales-data-pipeline`
+- **Write Disposition:** `WRITE_TRUNCATE`
+
+<!-- ───────── END of Prompts by Pavan Meka (pmeka@purdue.edu) ───────── -->
