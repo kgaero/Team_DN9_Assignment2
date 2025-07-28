@@ -136,3 +136,51 @@ The sales forecast model was evaluated using `ML.EVALUATE`. The `evaluation_resu
 The predicted sales exhibit a clear **weekly seasonality**, with sales volume expected to peak on Sundays and be lowest around Thursdays.
 As seen in the predicted sales volume data, weekends show a higher overall sales volume compared to weekdays in the forecast period, which aligns with the historical weekly pattern we analyzed earlier.
 <!-- ───────── END of Prompts by Rakesh Prusty (prustyr@purdue.edu) ───────── -->
+
+<!-- ───────── START of Prompts by Pavan Meka (pmeka@purdue.edu) ───────── -->
+
+## Key Observations from Time Series Forecast and Model Evaluation by Pavan Meka
+
+1. **Short-Term Forecast Insights (Aug 1–14, 2017):**
+   - Predicted sales range: **727K to 1.07M**.
+   - Highest sales expected on **Aug 13 (~1.07M)**, lowest on **Aug 10 (~620K)**.
+   - Prediction intervals widen over time, indicating growing uncertainty with longer horizons.
+   - Notable weekend sales spikes are observed (e.g., Aug 5–6 and Aug 12–13).
+
+2. **Model Configuration and Performance:**
+   - Optimal model: **ARIMA(2,1,1)** with **weekly and yearly seasonality**.
+   - Best AIC score: **40075.77** suggests strong model fit with minimal complexity.
+   - Residual variance (~**1.49B**) is stable, indicating reliable predictions for aggregated sales.
+   - The model detects **spikes/dips** and **step changes**, ensuring sensitivity to sales shocks.
+
+3. **Model Application & Usefulness:**
+   - This model supports tactical decisions such as **inventory planning**, **logistics**, and **marketing resource alignment**.
+   - No holiday effect was modeled, which could be a potential future enhancement for seasonal promotions.
+
+4. **Practical Implication:**
+   - Forecasts are reliable for short-term planning (2-week window).
+   - Supports strategic decisions around **inventory, promotion timing, and capacity planning**.
+   - 
+---
+
+### 4-Day Forecasted Sales (ARIMA_PLUS)
+
+| forecast_timestamp             |   forecast_value |   standard_error |   prediction_interval_lower_bound |   prediction_interval_upper_bound |
+|:-------------------------------|-----------------:|-----------------:|----------------------------------:|----------------------------------:|
+| 2017-08-01 00:00:00 UTC        | 877,018          | 38,648.8         | 801,403                           | 952,632                           |
+| 2017-08-02 00:00:00 UTC        | 879,722          | 41,936.4         | 797,675                           | 961,769                           |
+| 2017-08-03 00:00:00 UTC        | 727,332          | 43,116.0         | 642,977                           | 811,686                           |
+| 2017-08-04 00:00:00 UTC        | 842,084          | 44,735.5         | 754,561                           | 929,607                           |
+| 2017-08-05 00:00:00 UTC        | 1,026,835        | 46,527.8         | 935,806                           | 1,117,870                         |
+| 2017-08-06 00:00:00 UTC        | 1,112,700        | 48,218.1         | 1,018,360                         | 1,207,040                         |
+| 2017-08-07 00:00:00 UTC        | 811,950          | 49,824.1         | 714,472                           | 909,429                           |
+| 2017-08-08 00:00:00 UTC        | 693,434          | 51,381.2         | 592,909                           | 793,959                           |
+| 2017-08-09 00:00:00 UTC        | 706,181          | 52,895.4         | 602,693                           | 809,669                           |
+| 2017-08-10 00:00:00 UTC        | 620,289          | 54,367.6         | 513,921                           | 726,657                           |
+| 2017-08-11 00:00:00 UTC        | 781,748          | 55,800.6         | 672,576                           | 890,919                           |
+| 2017-08-12 00:00:00 UTC        | 984,699          | 57,197.7         | 872,794                           | 1,096,600                         |
+| 2017-08-13 00:00:00 UTC        | 1,074,500        | 58,561.5         | 959,926                           | 1,189,070                         |
+| 2017-08-14 00:00:00 UTC        | 801,779          | 59,894.3         | 684,598                           | 918,960                           |
+
+---
+<!-- ───────── END of Prompts by Pavan Meka (pmeka@purdue.edu) ───────── -->
