@@ -200,7 +200,7 @@ The pipeline is set up to run using the Dataflow runner. To launch it, you typic
 
 <!-- ───────── START of Prompts by Erjon Brucaj (ebrucaj@purdue.edu) ───────── -->
 
-# Dataflow Pipeline Setup — Store Sales and Store Info Data ETL
+# Dataflow Pipeline Setup — Store Sales Data ETL - Erjon Brucaj
 
 ## Objective
 
