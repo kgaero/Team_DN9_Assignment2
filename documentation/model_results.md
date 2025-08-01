@@ -218,11 +218,9 @@ As seen in the predicted sales volume data, weekends show a higher overall sales
 
 While the current model provides strong short-term forecasts and captures seasonality effectively, there are several opportunities to improve its accuracy, flexibility, and real-world application:
 
----
 
 ## 1. Incorporate Holiday Effects
 
-- Currently, `has_holiday_effect` is set to `False`, meaning the model doesn’t adjust for major retail holidays.
 - Adding national holidays and seasonal events (e.g., **Black Friday**, **back-to-school**) as regressors could improve accuracy during peak sales periods.
 
 ---
