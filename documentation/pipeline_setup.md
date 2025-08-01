@@ -259,8 +259,7 @@ This pipeline processes the Kaggle Store Sales dataset by reading both the `trai
 
 - **Project:** `mgmt590-brucaj-assignment-1`  
 - **Dataset:** `store_sales_team_DN9`  
-- **Tables:**
-  - `sales_data`
+- **Tables:** `sales_data`
 
 ---
 
@@ -272,7 +271,6 @@ This pipeline processes the Kaggle Store Sales dataset by reading both the `trai
 - **Runner:** `DataflowRunner`  
 - **Region:** `us-central1`  
 - **Machine Type:** Default (`n1-standard-1`)  
-- **Max Workers:** 1  
 - **Temp Location:** `gs://mgmt599-ebrucaj-data-lake/temp`  
 - **Staging Location:** `gs://mgmt599-ebrucaj-data-lake/temp`  
 
@@ -286,20 +284,21 @@ This pipeline processes the Kaggle Store Sales dataset by reading both the `trai
 - Cloud Storage API  
 
 ### IAM Permissions Required:
-- Read access to the GCS bucket (`Storage Object Viewer`)  
-- Write access to BigQuery (`BigQuery Data Editor`)  
-- Execute Dataflow jobs (`Dataflow Admin`, `Dataflow Worker`)  
+- Read access to the GCS bucket 
+- Write access to BigQuery
+- Execute Dataflow jobs
 
 ### BigQuery Table Setup:
-- Tables `sales_data` and `store_info` must be created before running the pipeline.  
+- Tables `sales_data` must be created before running the pipeline.  
 - Use schema matching the cleaned data structure.
 
 ---
 
-## Python Environment Setup
+## Conclusion
 
-```bash
-pip install apache-beam[gcp]
+- Proper data type conversion and filtering are critical for BigQuery compatibility.
+- Always verify data after loading (row count, date range) to ensure completeness.
+- Designing pipelines for reusability (e.g. parameterizing file paths or schemas) helps with scaling and maintenance.
 
 
 
