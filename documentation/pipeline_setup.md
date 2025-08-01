@@ -261,8 +261,6 @@ This pipeline processes the Kaggle Store Sales dataset by reading both the `trai
 - **Dataset:** `store_sales_team_DN9`  
 - **Tables:**
   - `sales_data`
-  - `store_info`
-- **Write Disposition:** `WRITE_TRUNCATE` (overwrite table on each run)
 
 ---
 
