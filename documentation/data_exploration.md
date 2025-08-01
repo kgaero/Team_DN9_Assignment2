@@ -188,7 +188,7 @@
 
 <!-- ───────── END of Prompts by Sai Nuka (snuka@purdue.edu) ───────── -->
 <!-- ───────── START of Prompts by Erjon Brucaj (ebrucaj@purdue.edu) ───────── -->
-# Dataset Summary by Pavan Meka
+# Dataset Summary by Erjon Brucaj
 
 ## 1. How many stores are in the dataset?  
 **There are 54 stores in the dataset.**
