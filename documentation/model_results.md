@@ -223,7 +223,6 @@ While the current model provides strong short-term forecasts and captures season
 
 - Adding national holidays and seasonal events (e.g., **Black Friday**, **back-to-school**) as regressors could improve accuracy during peak sales periods.
 
----
 
 ## 2. Integrate External Regressors
 
