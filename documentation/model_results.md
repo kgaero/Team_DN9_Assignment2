@@ -235,28 +235,24 @@ Include variables such as:
 
 > These regressors help explain variability not captured by time-based features alone.
 
----
 
 ## 3. Real-Time Forecast Monitoring
 
 - Set up pipelines to compare **actual sales vs. forecasted sales** on a weekly basis.  
 - Use deviation tracking to **trigger retraining** when performance degrades due to seasonality shifts or business changes.
 
----
 
 ## 4. Consider Ensemble Methods
 
 - Combine models (e.g., `ARIMA_PLUS` + `XGBoost`) to leverage the strengths of both statistical and machine learning approaches.  
 - Useful for improving accuracy during **high-volatility periods** or **non-linear trends**.
 
----
 
 ## 5. Evaluate Longer-Term Forecasts
 
 - Current horizon is **14 days**, which supports short-term tactical planning.  
 - Test extending to **30–60 day forecasts** to support strategic planning and budget forecasting.
 
----
 
 ## 6. Automate Pipeline Validation
 
