@@ -197,3 +197,112 @@ The pipeline is set up to run using the Dataflow runner. To launch it, you typic
 - **Staging Location:** `gs://mgmt599_sainuka/staging`
 
 <!-- ───────── END of Prompts by Sai Nuka (snuka@purdue.edu) ───────── -->
+
+<!-- ───────── START of Prompts by Erjon Brucaj (ebrucaj@purdue.edu) ───────── -->
+
+# Dataflow Pipeline Setup — Store Sales and Store Info Data ETL
+
+## Objective
+
+This pipeline processes the Kaggle Store Sales dataset by reading both the `train.csv` (sales) and `store_info.csv` files from Cloud Storage, parsing and transforming the data with Apache Beam, and loading them into BigQuery for downstream analysis and modeling.
+
+---
+
+## Input Configuration
+
+**Source:** Google Cloud Storage (GCS)
+
+- **Sales File:** `gs://mgmt599-ebrucaj-data-lake/pipeline_input/train.csv`  
+- **Store Info File:** `gs://mgmt599-ebrucaj-data-lake/pipeline_input/store_info.csv`  
+- **Format:** CSV (with header row)
+
+### Sales Columns:
+- `id`  
+- `date`  
+- `store_nbr`  
+- `family`  
+- `sales`  
+- `onpromotion`  
+
+### Store Info Columns:
+- `store_nbr`  
+- `city`  
+- `state`  
+- `type`  
+- `cluster`  
+
+---
+
+## Transformations
+
+- Skip the header row  
+- Parse CSV lines using `csv.reader`  
+- **Type conversion and cleaning:**
+  - `id` → INTEGER  
+  - `date` → DATE (`%Y-%m-%d`)  
+  - `store_nbr` → INTEGER  
+  - `family` → STRING  
+  - `sales` → FLOAT  
+  - `onpromotion` → INTEGER  
+  - `city`, `state`, `type` → STRING  
+  - `cluster` → INTEGER  
+
+- **Data filtering:**
+  - Remove records where `sales < 0`  
+  - Convert empty or malformed fields to `None` (for BigQuery compatibility)  
+
+---
+
+## Output Configuration
+
+**Destination:** BigQuery
+
+- **Project:** `mgmt590-brucaj-assignment-1`  
+- **Dataset:** `store_sales_team_DN9`  
+- **Tables:**
+  - `sales_data`
+  - `store_info`
+- **Write Disposition:** `WRITE_TRUNCATE` (overwrite table on each run)
+
+---
+
+## Pipeline Configuration
+
+- **Pipeline Type:** Custom Apache Beam Python Script  
+- **Script Name:** `dataflow_pipeline.py`  
+- **Job Name:** `mgmt599-ebrucaj-pipeline`  
+- **Runner:** `DataflowRunner`  
+- **Region:** `us-central1`  
+- **Machine Type:** Default (`n1-standard-1`)  
+- **Max Workers:** 1  
+- **Temp Location:** `gs://mgmt599-ebrucaj-data-lake/temp`  
+- **Staging Location:** `gs://mgmt599-ebrucaj-data-lake/temp`  
+
+---
+
+## Prerequisites
+
+### APIs to Enable:
+- BigQuery API  
+- Dataflow API  
+- Cloud Storage API  
+
+### IAM Permissions Required:
+- Read access to the GCS bucket (`Storage Object Viewer`)  
+- Write access to BigQuery (`BigQuery Data Editor`)  
+- Execute Dataflow jobs (`Dataflow Admin`, `Dataflow Worker`)  
+
+### BigQuery Table Setup:
+- Tables `sales_data` and `store_info` must be created before running the pipeline.  
+- Use schema matching the cleaned data structure.
+
+---
+
+## Python Environment Setup
+
+```bash
+pip install apache-beam[gcp]
+
+
+
+<!-- ───────── END of Prompts by Erjon Brucaj (ebrucaj@purdue.edu) ───────── -->
