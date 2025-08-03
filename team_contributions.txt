@@ -1,4 +1,4 @@
-#Team Contribution
+## Team Contribution
 
 We have each independently completed the data pipeline setup, exploratory analysis, and DIVE analysis.
 
