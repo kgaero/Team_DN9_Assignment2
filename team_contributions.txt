@@ -1,3 +1,5 @@
+#Team Contribution
+
 We have each independently completed the data pipeline setup, exploratory analysis, and DIVE analysis.
 
 Multiple team meetings were conducted to discuss the outcomes of our individual analyses.
