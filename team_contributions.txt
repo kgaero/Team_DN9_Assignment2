@@ -1,9 +1,7 @@
-## Team Contribution
+1. We have each independently completed the data pipeline setup, exploratory analysis, and DIVE analysis.
 
-We have each independently completed the data pipeline setup, exploratory analysis, and DIVE analysis.
+2. Multiple team meetings were conducted to discuss the outcomes of our individual analyses.
 
-Multiple team meetings were conducted to discuss the outcomes of our individual analyses.
+3. We have maintained continuous communication and information exchange through Microsoft Teams.
 
-We have maintained continuous communication and information exchange through Microsoft Teams.
-
-All individual findings and analyses have been consolidated into a unified DIVE analysis and action plan document.
+4. All individual findings and analyses have been consolidated into a unified DIVE analysis and action plan document.
